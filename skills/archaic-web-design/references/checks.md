@@ -1,0 +1,12 @@
+# UI verification
+
+For each changed site, check:
+
+1. **Integration:** Oat CSS loads first, the shared Archaic CSS second, and Oat JS loads where interactive components need it. No competing font, palette, radius, or shadow overrides.
+2. **Visual identity:** page shell, wordmark, title block, rules, type roles, action colors, and square controls match `assets/page-shell.html`; compare another archaic.work site if available.
+3. **Responsive:** review narrow phone width (~320px), desktop, and 200% text zoom. No horizontal document overflow; wide tables scroll in their own container.
+4. **Interaction:** use keyboard only through navigation, forms, menus, tabs, and dialogs. Verify focus, Escape/close behavior, labels, error messages, and spoken status updates.
+5. **Accessibility:** headings in order, one `h1`, meaningful link/button labels, sufficient text/control contrast, reduced-motion behavior, and no color-only states.
+6. **Consistency:** confirm new styles are either reusable family rules or genuinely local layout; do not fork design tokens. Test any changed JavaScript using the project test commands.
+
+Report what was actually exercised and any unsupported browsers or intentional deviations. Do not claim a visual/browser test without running one.

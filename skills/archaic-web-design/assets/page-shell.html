@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ee">
+  <title>Overview · archaic.work</title>
+  <!-- Replace paths with the website's pinned, locally served Oat assets. -->
+  <link rel="stylesheet" href="/assets/oat.min.css">
+  <link rel="stylesheet" href="/assets/archaic-theme.css">
+  <script src="/assets/oat.min.js" defer></script>
+</head>
+<body>
+  <a class="archaic-skip" href="#main">Skip to content</a>
+  <div class="archaic-shell">
+    <header class="archaic-header">
+      <a class="archaic-brand" href="/">archaic.work</a>
+      <nav aria-label="Primary">
+        <a href="#overview" aria-current="page">Overview</a>
+        <a href="#settings">Settings</a>
+      </nav>
+    </header>
+    <main class="archaic-main" id="main">
+      <header class="archaic-pagehead">
+        <p class="archaic-kicker">Workshop / 001</p>
+        <h1>A small, explicit system</h1>
+        <p class="archaic-lede">Keep the structure visible. Let typography, spacing, and a little blue ink identify the next action.</p>
+      </header>
+      <section class="archaic-section" id="overview" aria-labelledby="overview-title">
+        <h2 id="overview-title">Overview</h2>
+        <div class="archaic-columns">
+          <div>
+            <p class="archaic-prose">Prefer useful data and explanation over decorative tiles.</p>
+            <div class="table">
+              <table>
+                <caption>Example records</caption>
+                <thead><tr><th scope="col">Name</th><th scope="col">State</th></tr></thead>
+                <tbody><tr><td>Service catalog</td><td>Available</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+          <aside>
+            <details><summary>Working principle</summary><p>Use existing browser and Oat controls first.</p></details>
+          </aside>
+        </div>
+      </section>
+      <section class="archaic-section" id="settings" aria-labelledby="settings-title">
+        <h2 id="settings-title">Settings</h2>
+        <form action="#settings">
+          <label data-field>Project name <input name="project" required value="Example"></label>
+          <button type="submit">Save settings</button>
+        </form>
+      </section>
+    </main>
+    <footer class="archaic-footer">archaic.work · Small systems, carefully assembled.</footer>
+  </div>
+</body>
+</html>

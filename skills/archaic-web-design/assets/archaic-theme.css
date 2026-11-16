@@ -1,0 +1,89 @@
+/* Archaic web design v0.1 — load AFTER pinned Oat CSS. Light theme only. */
+:root {
+  color-scheme: light;
+  /* Canonical family ink and paper (adapted from Archaic Java). */
+  --archaic-paper: #f7f5ee;
+  --archaic-ink: #242922;
+  --archaic-muted-ink: #5d6259;
+  --archaic-blue: #285b78;
+  --archaic-rule: #b8bbb0;
+  --archaic-tint: #edf0eb;
+  --archaic-error: #963c2e;
+  --archaic-success: #376143;
+
+  /* Oat theme variables. */
+  --background: var(--archaic-paper);
+  --foreground: var(--archaic-ink);
+  --card: var(--archaic-paper);
+  --card-foreground: var(--archaic-ink);
+  --primary: var(--archaic-blue);
+  --primary-foreground: var(--archaic-paper);
+  --secondary: var(--archaic-tint);
+  --secondary-foreground: var(--archaic-ink);
+  --muted: var(--archaic-tint);
+  --muted-foreground: var(--archaic-muted-ink);
+  --faint: var(--archaic-tint);
+  --faint-foreground: var(--archaic-muted-ink);
+  --accent: var(--archaic-tint);
+  --danger: var(--archaic-error);
+  --danger-foreground: var(--archaic-paper);
+  --success: var(--archaic-success);
+  --success-foreground: var(--archaic-paper);
+  --warning: #805a16;
+  --warning-foreground: var(--archaic-paper);
+  --border: var(--archaic-rule);
+  --input: var(--archaic-muted-ink);
+  --ring: var(--archaic-blue);
+  --font-sans: sans-serif;
+  --font-mono: monospace;
+  --font-semibold: 600;
+  --font-bold: 600;
+  --radius-small: 0;
+  --radius-medium: 0;
+  --radius-large: 0;
+  --shadow-small: none;
+  --shadow-medium: none;
+  --shadow-large: none;
+}
+
+/* Semantics and family-wide presentation, independent of page content. */
+:where(body, dialog, [popover]) { font-family: var(--font-sans); }
+:where(h1, h2, h3, h4, h5, h6) { font-family: var(--font-sans); font-weight: 600; line-height: 1.15; }
+:where(button, input, select, textarea) { font-family: var(--font-sans); }
+:where(a) { text-underline-offset: .2em; }
+:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
+
+.archaic-skip { position: absolute; inset-block-start: -5rem; inset-inline-start: 1rem; z-index: 1000; padding: .5rem 1rem; background: var(--archaic-paper); color: var(--archaic-blue); }
+.archaic-skip:focus { inset-block-start: 1rem; }
+.archaic-shell { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
+.archaic-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem 2rem;
+  padding-block: 1.75rem 1rem; border-bottom: 3px solid var(--archaic-ink);
+}
+.archaic-brand {
+  color: var(--archaic-ink); font: 600 1.25rem/1.2 var(--font-sans);
+  text-decoration: none; letter-spacing: -.02em;
+}
+.archaic-header nav { display: flex; gap: .5rem 1.5rem; flex-wrap: wrap; }
+.archaic-header nav a { color: var(--archaic-ink); font-size: .875rem; }
+.archaic-header nav a[aria-current="page"] { font-weight: 600; text-decoration-thickness: 2px; }
+.archaic-main { padding-block: 2.75rem 4rem; }
+.archaic-pagehead { padding-block-end: 2rem; margin-block-end: 2rem; border-bottom: 1px solid var(--archaic-rule); }
+.archaic-kicker { margin: 0; font: 600 .75rem/1.4 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--archaic-muted-ink); }
+.archaic-pagehead h1 { margin: .5rem 0 1rem; font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: 1.08; letter-spacing: -.025em; }
+.archaic-lede, .archaic-prose { max-width: 68ch; font: 1.125rem/1.55 serif; }
+.archaic-section { margin-block: 2.5rem; padding-block-start: 1.5rem; border-top: 3px solid var(--archaic-ink); }
+.archaic-section h2 { margin-block-start: 0; }
+.archaic-columns { display: grid; grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr); gap: 2.5rem; }
+.archaic-columns > * { min-width: 0; }
+.archaic-footer { border-top: 1px solid var(--archaic-rule); padding-block: 1.5rem 3rem; font-size: .875rem; color: var(--archaic-muted-ink); }
+
+@media (max-width: 48rem) {
+  .archaic-skip { position: absolute; inset-block-start: -5rem; inset-inline-start: 1rem; z-index: 1000; padding: .5rem 1rem; background: var(--archaic-paper); color: var(--archaic-blue); }
+.archaic-skip:focus { inset-block-start: 1rem; }
+.archaic-shell { width: min(100% - 2rem, 76rem); }
+  .archaic-header { align-items: start; }
+  .archaic-columns { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .archaic-main { padding-block-start: 2rem; }
+}
