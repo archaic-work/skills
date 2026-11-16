@@ -76,7 +76,8 @@ main :is(form, form p, table, table p, caption, label, [role="status"], [role="a
 :where(p code, li code, dd code) { overflow-wrap: anywhere; }
 p { text-align: start; }
 :where(a) { text-underline-offset: .2em; }
-:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
+/* Oat owns focus: text fields use a border + shadow, other controls use its outline.
+   Do not add a global :focus-visible outline on top of those indicators. */
 body { margin: 0; background: var(--background); color: var(--foreground); }
 body > :is(header, main, footer) { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
 body > a[href="#main"] {
