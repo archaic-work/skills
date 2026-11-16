@@ -1,38 +1,44 @@
-/* Archaic web design v0.1 — load AFTER pinned Oat CSS. Light theme only. */
+/* Archaic Heritage v0.2 -- load AFTER pinned Oat CSS. */
+/* System theme by default; set data-theme=light|dark on html or body to override. */
 :root {
-  color-scheme: light;
-  /* Canonical family ink and paper (adapted from Archaic Java). */
-  --archaic-paper: #f7f5ee;
-  --archaic-ink: #242922;
-  --archaic-muted-ink: #5d6259;
-  --archaic-blue: #285b78;
-  --archaic-rule: #b8bbb0;
-  --archaic-tint: #edf0eb;
-  --archaic-error: #963c2e;
-  --archaic-success: #376143;
+  color-scheme: light dark;
+  /* Canonical family palette, paired by deliberate light/dark choices. */
+  --archaic-paper: light-dark(#f7f5ee, #171d1a);
+  --archaic-ink: light-dark(#242922, #ecede4);
+  --archaic-muted-ink: light-dark(#5d6259, #b2b9b1);
+  --archaic-blue: light-dark(#285b78, #93c5df);
+  --archaic-rule: light-dark(#b8bbb0, #4b5752);
+  --archaic-tint: light-dark(#edf0eb, #232b27);
+  --archaic-card: light-dark(#f7f5ee, #232b27);
+  --archaic-input-border: light-dark(#5d6259, #899b91);
+  --archaic-on-blue: light-dark(#f7f5ee, #13232b);
+  --archaic-error: light-dark(#963c2e, #f29b8f);
+  --archaic-success: light-dark(#376143, #88caa2);
+  --archaic-warning: light-dark(#805a16, #e8c177);
+  --archaic-on-status: light-dark(#f7f5ee, #171d1a);
 
-  /* Oat theme variables. */
+  /* Oat's semantic theme tokens. */
   --background: var(--archaic-paper);
   --foreground: var(--archaic-ink);
-  --card: var(--archaic-paper);
+  --card: var(--archaic-card);
   --card-foreground: var(--archaic-ink);
   --primary: var(--archaic-blue);
-  --primary-foreground: var(--archaic-paper);
+  --primary-foreground: var(--archaic-on-blue);
   --secondary: var(--archaic-tint);
   --secondary-foreground: var(--archaic-ink);
   --muted: var(--archaic-tint);
   --muted-foreground: var(--archaic-muted-ink);
-  --faint: var(--archaic-tint);
+  --faint: var(--archaic-card);
   --faint-foreground: var(--archaic-muted-ink);
   --accent: var(--archaic-tint);
   --danger: var(--archaic-error);
-  --danger-foreground: var(--archaic-paper);
+  --danger-foreground: var(--archaic-on-status);
   --success: var(--archaic-success);
-  --success-foreground: var(--archaic-paper);
-  --warning: #805a16;
-  --warning-foreground: var(--archaic-paper);
+  --success-foreground: var(--archaic-on-status);
+  --warning: var(--archaic-warning);
+  --warning-foreground: var(--archaic-on-status);
   --border: var(--archaic-rule);
-  --input: var(--archaic-muted-ink);
+  --input: var(--archaic-input-border);
   --ring: var(--archaic-blue);
   --font-sans: sans-serif;
   --font-mono: monospace;
@@ -45,6 +51,10 @@
   --shadow-medium: none;
   --shadow-large: none;
 }
+
+/* An explicit choice wins over the OS. No attribute means follow the OS. */
+:root[data-theme="light"], body[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"], body[data-theme="dark"] { color-scheme: dark; }
 
 /* Semantic shell: shared layout without presentation classes or wrapper divs. */
 :where(body, dialog, [popover]) { font-family: var(--font-sans); }

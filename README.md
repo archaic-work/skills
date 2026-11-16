@@ -22,7 +22,7 @@ In each website's `AGENTS.md`, add: `For UI work on this archaic.work project, u
 
 The skill contains **[the canonical stylesheet](skills/archaic-web-design/assets/archaic-theme.css)** and a [classless, semantic page shell](skills/archaic-web-design/assets/page-shell.html). Install/pin Oat in the website, then include `archaic-theme.css` **after** Oat CSS. The skill's installation does not automatically inject CSS into a website. For reproducible websites, copy the stylesheet at a known skill revision or publish it as a separately versioned CSS asset; do not independently edit copies.
 
-The initial palette and type roles follow the existing Archaic Java visual specimen. The theme deliberately supports **light mode only** until a separately reviewed dark palette exists. Changes to the shared identity should be reviewed as changes to the entire project family.
+The **Heritage** palette follows the existing Archaic Java specimen in light mode and has a deliberately paired charcoal-green dark mode. Leave `data-theme` unset for automatic OS preference, or set `data-theme="light"` / `"dark"` on `<html>` for an explicit override. An optional theme picker belongs in each site, not the skill. Changes to the shared identity should be reviewed as changes to the entire project family.
 
 ## Development
 

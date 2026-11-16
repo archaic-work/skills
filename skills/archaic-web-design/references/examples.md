@@ -125,3 +125,25 @@ button { border-radius: 12px; box-shadow: 0 2px 8px #0002; }
 ```
 
 **Why:** The shared CSS owns fonts, palette, spacing, and controls. Make family-wide design changes there; site-local CSS should express actual site-specific structure, not a competing design system.
+
+## 6. Theme: paired tokens rather than ad hoc page colors
+
+**Avoid** -- fixed colors that fail in dark mode:
+
+```css
+body { background: #f7f5ee; color: #242922; }
+button { background: #285b78; color: white; }
+```
+
+**Prefer** -- load shared CSS after Oat, and keep system mode as the default:
+
+```html
+<link rel="stylesheet" href="/assets/oat.min.css">
+<link rel="stylesheet" href="/assets/archaic-theme.css">
+<!-- No data-theme: follow the OS. Add data-theme="light" or "dark"
+     to html for a deliberate user override. -->
+```
+
+**Why:** The shared CSS owns both Heritage palettes and Oat's semantic tokens.
+Avoid maintaining a competing palette or implementing a theme switch without a
+meaningful System option. See [theme behavior](design.md#theme-behavior).
