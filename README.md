@@ -20,7 +20,7 @@ In each website's `AGENTS.md`, add: `For UI work on this archaic.work project, u
 
 ## Applying the theme
 
-The skill contains **[the canonical stylesheet](skills/archaic-web-design/assets/archaic-theme.css)** and a [page shell](skills/archaic-web-design/assets/page-shell.html). Install/pin Oat in the website, then include `archaic-theme.css` **after** Oat CSS. The skill's installation does not automatically inject CSS into a website. For reproducible websites, copy the stylesheet at a known skill revision or publish it as a separately versioned CSS asset; do not independently edit copies.
+The skill contains **[the canonical stylesheet](skills/archaic-web-design/assets/archaic-theme.css)** and a [classless, semantic page shell](skills/archaic-web-design/assets/page-shell.html). Install/pin Oat in the website, then include `archaic-theme.css` **after** Oat CSS. The skill's installation does not automatically inject CSS into a website. For reproducible websites, copy the stylesheet at a known skill revision or publish it as a separately versioned CSS asset; do not independently edit copies.
 
 The initial palette and type roles follow the existing Archaic Java visual specimen. The theme deliberately supports **light mode only** until a separately reviewed dark palette exists. Changes to the shared identity should be reviewed as changes to the entire project family.
 

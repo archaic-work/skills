@@ -5,7 +5,7 @@ description: Build, edit, and review archaic.work websites and web apps with one
 
 # Archaic web design
 
-Build related sites that look unmistakably part of one family: warm paper, dark ink, restrained blue, native typography, square controls, aligned information, and visible rules. Prefer semantic HTML and Oat over bespoke widgets. Keep implementation plain and small.
+Build related sites that look unmistakably part of one family: warm paper, dark ink, restrained blue, native typography, square controls, aligned information, and visible rules. Prefer semantic HTML and Oat over bespoke widgets. Keep implementation plain and small; prefer classless semantic structure over presentation wrappers.
 
 ## Workflow
 
@@ -13,7 +13,7 @@ Build related sites that look unmistakably part of one family: warm paper, dark 
 2. Use [assets/archaic-theme.css](assets/archaic-theme.css) **after Oat CSS**. Treat its tokens as authoritative. Reuse the shared revision instead of hand-copying colors or inventing typefaces; never add web fonts.
 3. Start from [assets/page-shell.html](assets/page-shell.html) for a new page. Keep the same masthead, wordmark, title block, separators, widths, and footer; vary content, not identity. See [layout](references/layout.md).
 4. Select native/Oat controls with [component guide](references/oat.md). Verify unclear APIs against the **installed Oat version** and [official docs](https://oat.ink/components/). Never recreate an available interaction or add a UI framework just for appearance.
-5. Follow [design rules](references/design.md) for type hierarchy, density, states, and allowable deviations. Use CSS classes only for project-specific structure, not to rebuild Oat.
+5. Follow [design rules](references/design.md) for type hierarchy, density, states, and allowable deviations. Style semantic elements in the shared stylesheet. Do not introduce presentational `div` wrappers or classes by default; allow a purposeful wrapper or class only where semantics or a specific Oat component require it.
 6. Run the [verification checklist](references/checks.md) for each UI change; report checks not performed.
 
 ## Boundaries
