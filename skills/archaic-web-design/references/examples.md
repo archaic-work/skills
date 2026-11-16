@@ -147,3 +147,97 @@ button { background: #285b78; color: white; }
 **Why:** The shared CSS owns both Heritage palettes and Oat's semantic tokens.
 Avoid maintaining a competing palette or implementing a theme switch without a
 meaningful System option. See [theme behavior](design.md#theme-behavior).
+
+## 7. Rules: one separator owns each boundary
+
+**Avoid** -- stacking an `hr` and a border beneath the title, followed by the section border:
+
+```html
+<main>
+  <header><h1>Repositories</h1><hr></header>
+  <section style="border-top: 3px solid"><h2>Recent</h2></section>
+</main>
+```
+
+**Prefer** -- let the canonical stylesheet place the single rule at the section boundary:
+
+```html
+<main>
+  <header><h1>Repositories</h1></header>
+  <section aria-labelledby="recent"><h2 id="recent">Recent</h2></section>
+</main>
+```
+
+**Why:** A boundary needs one mark, not several adjacent marks. The common CSS owns masthead, section, and footer rules.
+
+## 8. Headings: restrained weight, not forceful bold
+
+**Avoid** -- overriding heading weight to 700 or 900:
+
+```css
+h1, h2 { font-weight: 800; }
+```
+
+**Prefer** -- use the shared font rules, which set a moderate 500 weight:
+
+```html
+<h1>A small, explicit system</h1>
+<h2>Repositories</h2>
+```
+
+**Why:** Size, placement, and whitespace carry hierarchy. Do not make headings bold as a substitute for composition.
+
+## 9. Fonts: roles stay consistent, even when nested
+
+**Avoid** -- defaulting explanatory prose to sans or using proportional text for paths:
+
+```html
+<article style="font-family: sans-serif">
+  <p>Why the build works.</p>
+  <span>/etc/archaic/config</span>
+</article>
+```
+
+**Prefer** -- use native semantics and the stylesheet's role rules:
+
+```html
+<article>
+  <h2>The build</h2>
+  <p>Why the build works.</p>
+  <p>Configuration: <code>/etc/archaic/config</code></p>
+</article>
+```
+
+**Why:** Sans headings organize, serif paragraphs explain, and monospace identifiers specify. Tables, controls, and short status text stay sans.
+
+## 10. Space: give sections room to breathe
+
+**Avoid** -- arbitrary tight spacing to fit extra content above the fold:
+
+```css
+main > section { margin-block: .5rem; padding-block-start: .25rem; }
+```
+
+**Prefer** -- keep the shared section rhythm and apply only its spacing tokens to local groups:
+
+```css
+section > form { margin-block-start: var(--archaic-space-md); }
+```
+
+**Why:** `lg` separates content from its rule; `xl` separates major regions; `md` separates related groups; `sm` is for small control clusters. Avoid decorative empty space, but do not compress content.
+
+## 11. Paragraph alignment: centered containers, left-aligned prose
+
+**Avoid** -- centering a hero paragraph itself:
+
+```html
+<header><h1>Documentation</h1><p style="text-align: center">How the system works.</p></header>
+```
+
+**Prefer** -- semantic markup and the default `text-align: start`:
+
+```html
+<header><h1>Documentation</h1><p>How the system works.</p></header>
+```
+
+**Why:** A constrained, centered page is not a reason to center its text. This applies to introductions, normal prose, and helper paragraphs.

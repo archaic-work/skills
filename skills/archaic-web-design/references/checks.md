@@ -8,6 +8,9 @@ For each changed site, check:
 4. **Responsive:** review narrow phone width (~320px), desktop, and 200% text zoom. No horizontal document overflow; wide tables scroll in their own container.
 5. **Interaction:** use keyboard only through navigation, forms, menus, tabs, and dialogs. Verify focus, Escape/close behavior, labels, error messages, and spoken status updates.
 6. **Accessibility:** headings in order, one `h1`, meaningful link/button labels, sufficient text/control contrast, reduced-motion behavior, and no color-only states.
-7. **Consistency:** confirm new styles are either reusable family rules or genuinely local layout; do not fork design tokens. Test any changed JavaScript using the project test commands.
+7. **Five regression checks:** (a) exactly one line per section boundary, no redundant `hr`/border stacking; (b) headings stay moderate-weight (500), never default 700+; (c) sans for structure and operations, serif for prose even when nested, mono for code/identifiers; (d) major sections and content groups use shared spacing tokens and do not feel cramped; (e) paragraphs are start-aligned, including hero text. Review at phone and desktop sizes.
+8. **Consistency:** confirm new styles are either reusable family rules or genuinely local layout; do not fork design tokens. Test any changed JavaScript using the project test commands.
+
+For skill-level regression testing, ask two or three different coding agents to implement the same small page and inspect these five criteria side by side. Do not claim agent reliability improved without comparing results.
 
 Report what was actually exercised and any unsupported browsers or intentional deviations. Do not claim a visual/browser test without running one.
