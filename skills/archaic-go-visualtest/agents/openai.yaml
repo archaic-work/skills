@@ -1,0 +1,3 @@
+interface:
+  display_name: "Archaic Go Visualtest"
+  short_description: "Deterministic Chromium scenarios and PR visual review"
