@@ -30,7 +30,7 @@ The **Heritage** palette follows the existing Archaic Java specimen in light mod
 
 ## Go visualtest module
 
-The `archaic-go-visualtest` skill describes a browser-testing workflow and the optional external Go library, which remains at [mitschwimmer/go-skill](https://github.com/mitschwimmer/go-skill). Installing the skill does not install that module or a Chromium executable. The Go import path and release process are intentionally unchanged by this migration.
+The `archaic-go-visualtest` skill describes a browser-testing workflow and the optional external Go library, maintained at [archaic-work/visual-test](https://github.com/archaic-work/visual-test). Installing the skill does not install that Go module or a Chromium executable. Use `github.com/archaic-work/visual-test` for imports and pin a reviewed module version or commit.
 
 ## Development
 

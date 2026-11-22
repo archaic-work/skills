@@ -19,7 +19,7 @@ Validate visible browser behavior through reproducible scenarios and real Chromi
 ## Boundaries
 
 - This skill provides testing instructions, not a Go runtime dependency. Installing it does not install Chromium, Rod, a binary or the Go module.
-- The Go library currently lives at `github.com/mitschwimmer/go-skill`; do not rewrite its imports to a prospective repository name.
+- The Go library is maintained separately at `github.com/archaic-work/visual-test`; use this module path for new imports and command examples. Do not import the historical `github.com/mitschwimmer/go-skill` module.
 - Leave app-specific fixtures, assertions, UI assets and captured scenarios in the application repository.
 - Browser tests are not needed for pure CLI or API projects. Use `archaic-go` for general Go engineering and `archaic-web-design` for shared site presentation when relevant.
 - Do not run untrusted PR code with privileged CI credentials or fabricate screenshots from static mocks.

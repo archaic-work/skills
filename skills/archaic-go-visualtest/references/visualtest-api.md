@@ -1,6 +1,6 @@
 # Archaic Go visualtest library
 
-The external Go module (`github.com/mitschwimmer/go-skill`) supplies a standard-library core at `visualtest` and a Rod adapter at `visualtest/rod`. Use it for applications that benefit from reproducible browser screenshots and PR visual review. Keep the dependency in test tooling, not production binaries.
+The external Go module (`github.com/archaic-work/visual-test`) supplies a standard-library core at `visualtest` and a Rod adapter at `visualtest/rod`. Use it for applications that benefit from reproducible browser screenshots and PR visual review. Keep the dependency in test tooling, not production binaries.
 
 ## Division of responsibility
 
@@ -40,7 +40,7 @@ manifest, err := suite.Capture(ctx, rodtest.Options{
 })
 ```
 
-Import `github.com/mitschwimmer/go-skill/visualtest` as `visualtest`, `github.com/mitschwimmer/go-skill/visualtest/rod` as `rodtest`, and `github.com/go-rod/rod` as `rod`. `shot("waiting")` takes a real PNG after asserting the desired browser state. Multiple declared checkpoints can be taken in order; calling one twice or omitting one is an error. Browser options do not replace application assertions.
+Import `github.com/archaic-work/visual-test/visualtest` as `visualtest`, `github.com/archaic-work/visual-test/visualtest/rod` as `rodtest`, and `github.com/go-rod/rod` as `rod`. `shot("waiting")` takes a real PNG after asserting the desired browser state. Multiple declared checkpoints can be taken in order; calling one twice or omitting one is an error. Browser options do not replace application assertions.
 
 ## Baselines and contracts
 
@@ -58,8 +58,8 @@ go run ./cmd/visualtest compare --base /tmp/main-shots --candidate /tmp/pr-shots
 From a consuming application's repository, invoke a pinned version of the external command instead (replace `<pinned-ref>` with a reviewed commit or module version):
 
 ```sh
-go run github.com/mitschwimmer/go-skill/cmd/visualtest@<pinned-ref> validate tests/scenarios
-go run github.com/mitschwimmer/go-skill/cmd/visualtest@<pinned-ref> compare --base /tmp/main-shots --candidate /tmp/pr-shots --out /tmp/visual-report
+go run github.com/archaic-work/visual-test/cmd/visualtest@<pinned-ref> validate tests/scenarios
+go run github.com/archaic-work/visual-test/cmd/visualtest@<pinned-ref> compare --base /tmp/main-shots --candidate /tmp/pr-shots --out /tmp/visual-report
 ```
 
 The comparator rejects missing same-contract captures and incompatible browser environments. It classifies unchanged, changed, added, removed and contract-changed views, writes real PNG difference images where dimensions agree, and renders a static changed-only `index.html` and `summary.json`. `GITHUB_STEP_SUMMARY` is populated if available.
