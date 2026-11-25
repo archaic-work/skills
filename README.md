@@ -26,7 +26,7 @@ In a project's `AGENTS.md`, name the applicable skills. For example: `For Go dev
 
 The skill contains **[the canonical stylesheet](skills/archaic-web-design/assets/archaic-theme.css)** and a [classless, semantic page shell](skills/archaic-web-design/assets/page-shell.html). Install/pin Oat in the website, then include `archaic-theme.css` **after** Oat CSS. The skill's installation does not automatically inject CSS into a website. For reproducible websites, copy the stylesheet at a known skill revision or publish it as a separately versioned CSS asset; do not independently edit copies.
 
-The **Heritage** palette follows the existing Archaic Java specimen in light mode and has a deliberately paired charcoal-green dark mode. Leave `data-theme` unset for automatic OS preference, or set `data-theme="light"` / `"dark"` on `<html>` for an explicit override. An optional theme picker belongs in each site, not the skill. Changes to the shared identity should be reviewed as changes to the entire project family.
+The **Heritage** palette follows the existing Archaic Java specimen in light mode and has a deliberately paired OLED-black dark mode with subtle green-tinted functional surfaces. Use generic sans-serif for human-readable text and monospace for technical identifiers in both modes. Leave `data-theme` unset for automatic OS preference, or set `data-theme="light"` / `"dark"` on `<html>` for an explicit override. An optional theme picker belongs in each site, not the skill. Changes to the shared identity should be reviewed as changes to the entire project family.
 
 ## Go visualtest module
 
