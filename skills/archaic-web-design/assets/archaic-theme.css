@@ -1,21 +1,21 @@
-/* Archaic Heritage v0.3 -- load AFTER pinned Oat CSS. */
+/* Archaic Heritage v0.4 -- load AFTER pinned Oat CSS. */
 /* System theme by default; set data-theme=light|dark on html or body to override. */
 :root {
   color-scheme: light dark;
   /* Canonical family palette, paired by deliberate light/dark choices. */
-  --archaic-paper: light-dark(#f7f5ee, #171d1a);
+  --archaic-paper: light-dark(#f7f5ee, #000000);
   --archaic-ink: light-dark(#242922, #ecede4);
   --archaic-muted-ink: light-dark(#5d6259, #b2b9b1);
   --archaic-blue: light-dark(#285b78, #93c5df);
-  --archaic-rule: light-dark(#b8bbb0, #4b5752);
-  --archaic-tint: light-dark(#edf0eb, #232b27);
-  --archaic-card: light-dark(#f7f5ee, #232b27);
+  --archaic-rule: light-dark(#b8bbb0, #343d38);
+  --archaic-tint: light-dark(#edf0eb, #101512);
+  --archaic-card: light-dark(#f7f5ee, #101512);
   --archaic-input-border: light-dark(#5d6259, #899b91);
   --archaic-on-blue: light-dark(#f7f5ee, #13232b);
   --archaic-error: light-dark(#963c2e, #f29b8f);
   --archaic-success: light-dark(#376143, #88caa2);
   --archaic-warning: light-dark(#805a16, #e8c177);
-  --archaic-on-status: light-dark(#f7f5ee, #171d1a);
+  --archaic-on-status: light-dark(#f7f5ee, #000000);
 
   /* Oat's semantic theme tokens. */
   --background: var(--archaic-paper);
@@ -62,12 +62,12 @@
 :root[data-theme="dark"], body[data-theme="dark"] { color-scheme: dark; }
 
 /* Semantic shell: shared layout without presentation classes or wrapper divs. */
-/* Type roles: sans structures, serif explains, mono specifies. */
+/* Type roles: sans for communication, mono for specification. */
 :where(body, dialog, [popover]) { font-family: var(--font-sans); }
 :is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--font-sans); font-weight: 500; line-height: 1.2; text-align: start;
 }
-main p, main blockquote { font-family: serif; line-height: 1.6; text-align: start; }
+main p, main blockquote { font-family: var(--font-sans); line-height: 1.6; text-align: start; }
 /* Operational text stays sans, even when nested in main. */
 main :is(form, form p, table, table p, caption, label, [role="status"], [role="alert"]),
 :where(nav, button, input, select, textarea) { font-family: var(--font-sans); }
