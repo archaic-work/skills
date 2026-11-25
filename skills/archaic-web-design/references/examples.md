@@ -189,10 +189,10 @@ h1, h2 { font-weight: 800; }
 
 ## 9. Fonts: roles stay consistent, even when nested
 
-**Avoid** -- defaulting explanatory prose to sans or using proportional text for paths:
+**Avoid** -- overriding explanatory prose to serif or using proportional text for paths:
 
 ```html
-<article style="font-family: sans-serif">
+<article style="font-family: serif">
   <p>Why the build works.</p>
   <span>/etc/archaic/config</span>
 </article>
@@ -208,7 +208,7 @@ h1, h2 { font-weight: 800; }
 </article>
 ```
 
-**Why:** Sans headings organize, serif paragraphs explain, and monospace identifiers specify. Tables, controls, and short status text stay sans.
+**Why:** Use sans for all human-readable text, including nested prose, headings, tables, and controls. Use monospace for technical identifiers.
 
 ## 10. Space: give sections room to breathe
 
