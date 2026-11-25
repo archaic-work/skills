@@ -5,7 +5,7 @@ description: Build, edit, and review archaic.work websites and web apps with one
 
 # Archaic web design
 
-Build related sites that look unmistakably part of one family: Heritage paper and ink by day, charcoal-green and soft ivory by night, restrained blue, native typography, square controls, aligned information, and visible rules. Prefer semantic HTML and Oat over bespoke widgets. Keep implementation plain and small; prefer classless semantic structure over presentation wrappers.
+Build related sites that look unmistakably part of one family: Heritage paper and ink by day, OLED black, dark green-tinted surfaces, and soft ivory by night, restrained blue, native typography, square controls, aligned information, and visible rules. Prefer semantic HTML and Oat over bespoke widgets. Keep implementation plain and small; prefer classless semantic structure over presentation wrappers.
 
 ## Workflow
 
@@ -14,7 +14,7 @@ Build related sites that look unmistakably part of one family: Heritage paper an
 3. Start from [assets/page-shell.html](assets/page-shell.html) for a new page. Keep the same masthead, wordmark, title block, widths, and footer; vary content, not identity. Give each boundary one separator and leave generous space between regions. See [layout](references/layout.md).
 4. Select native/Oat controls with [component guide](references/oat.md). Verify unclear APIs against the **installed Oat version** and [official docs](https://oat.ink/components/). Never recreate an available interaction or add a UI framework just for appearance.
 5. Use **Lucide only** for interface icons. Prefer a small set of locally stored SVGs over an icon runtime, icon font, or mixed libraries; keep icons functional rather than decorative. Read [icon guidance](references/icons.md) when adding or reviewing icons. Respect an existing project's icon implementation while aligning new icons with Lucide.
-6. Follow [design rules](references/design.md): sans structures, serif explains, mono specifies; headings use moderate weight, prose stays left-aligned, and sections must breathe. Style semantic elements in the shared stylesheet. Do not introduce presentational `div` wrappers or classes by default; allow a purposeful wrapper or class only where semantics or a specific Oat component require it. For a new UI pattern or markup review, consult the concise [prefer/avoid examples](references/examples.md); skip them for routine content edits.
+6. Follow [design rules](references/design.md): sans for communication, mono for specification; headings use moderate weight, prose stays left-aligned, and sections must breathe. Style semantic elements in the shared stylesheet. Do not introduce presentational `div` wrappers or classes by default; allow a purposeful wrapper or class only where semantics or a specific Oat component require it. For a new UI pattern or markup review, consult the concise [prefer/avoid examples](references/examples.md); skip them for routine content edits.
 7. Run the [verification checklist](references/checks.md) for each UI change; report checks not performed.
 
 ## Boundaries
