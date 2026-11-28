@@ -14,5 +14,6 @@ Use a project-specific skill as the actionable maintenance playbook for both hum
 - Do the documented paths and commands exist at the current revision?
 - Can a new maintainer locate the relevant code, run tests, change a feature, debug a failure, and understand the release process?
 - Are project-specific secrets, services and configuration described without exposing credentials?
+- Are deployment and CI instructions grounded in the current owning repositories? Link to operational procedures rather than copying mutable infrastructure details.
 - Does the repository README provide a human-friendly entry point without duplicating the full maintenance playbook?
 - Were the skill's instructions updated when behavior or tooling changed?

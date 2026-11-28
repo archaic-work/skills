@@ -28,5 +28,6 @@ Develop minimal, explicit, idiomatic Go projects. Keep Go responsible for module
 - Do not replace standard Go modules with Nix-managed imports or make `nix build` the interactive edit-test loop.
 - Use direct Go commands inside `nix develop`. Add flake apps for meaningful, repeatable entry points rather than treating `nix run` as a universal task runner.
 - Keep workstation-global shell, Helix, and Git settings distinct from project toolchains and editor dependencies.
+- Discover CI, deployment, registry, and artifact-delivery configuration from the project's current documentation and infrastructure repositories. Do not assume a CI provider, GitOps controller, container runtime, or deployment target. Keep application-owned checks separate from infrastructure-owned orchestration, credentials, and deployment.
 - On NixOS, prefer native packages or source builds when precompiled Linux executables depend on incompatible FHS interpreter paths.
 - Treat conventions as defaults, not permission to break upstream code, project-specific requirements, or backwards compatibility. Explain departures and tradeoffs.
