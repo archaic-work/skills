@@ -7,11 +7,11 @@ The external Go module (`github.com/archaic-work/visual-test`) supplies a standa
 - `visualtest`: parse and validate stable `area.capability.case` definitions, record capture manifests, compare decoded PNG pixels and create changed-only HTML/JSON reports. No browser dependencies in this package.
 - `visualtest/rod`: launch **installed** Chromium, isolate browser contexts, fix viewport/theme/locale/timezone/reduced-motion, run application-owned cases and capture every named checkpoint. This package imports Rod.
 - Application code: synthetic HTTP fixtures, real UI assets, browser interaction/assertions, scenario files, and paths containing fixture/expectation code.
-- CI: check out base commit and proposed merge revision, invoke the same test runner against both asset trees, compare reports, and upload artifacts. Do not elevate permissions for PR code.
+- CI: check out the exact project-selected baseline and candidate commits, invoke the same test runner against both asset trees, and make reports available through the approved artifact/review path. Keep application checks provider-neutral; let the infrastructure owner manage orchestration, isolation, credentials, and retention. Do not elevate permissions for PR code.
 
 ## Minimal application adapter
 
-Run under a test-only Go module or `tests/browser` command in the application. Register cases in ordinary Go. This example abbreviates the HTTP fixture:
+Run under a test-only Go module or `tests/browser` command in the application. Register cases in ordinary Go. This example matches the two checkpoints in `ui-scenarios.md`. The illustrative HTTP fixture holds its partial response until explicitly released; adapt the fixture gate and DOM selectors to the application's real behavior.
 
 ```go
 suite := rodtest.Runner{
@@ -29,7 +29,11 @@ suite := rodtest.Runner{
             Run: func(ctx context.Context, page *rod.Page, shot func(string) error) error {
                 // Interact and assert using ordinary Rod methods.
                 if err := page.Wait(rod.Eval(`() => !!document.querySelector('.response-loader')`)); err != nil { return err }
-                return shot("waiting")
+                if err := shot("waiting"); err != nil { return err }
+                // Release the synthetic fixture's next response event, not a production hook.
+                if err := releasePartial(ctx); err != nil { return err }
+                if err := page.Wait(rod.Eval(`() => !!document.querySelector('.response-partial')`)); err != nil { return err }
+                return shot("partial")
             },
         },
     },
@@ -46,7 +50,7 @@ Import `github.com/archaic-work/visual-test/visualtest` as `visualtest`, `github
 
 A scenario's contract is the canonical JSON definition **plus the contents of its `ContractFiles`**. Include all source files that determine its fixture data or test expectations, but do **not** include HTML/CSS/JS application assets: those are the intended subjects of visual comparison. Split scenario-specific fixtures if unrelated changes would otherwise invalidate the entire catalog.
 
-Capture the candidate with the current checkout and save its returned `Manifest`. Capture `main` using the **same compiled candidate runner**, with `ProjectRoot`, `Definitions`, and `Assets` pointing at the exact base checkout, and `MatchContracts` set to `candidateManifest.Contracts`. The adapter skips incompatible contracts but retains their identities for the report. This prevents changed fixtures from being described as like-for-like regressions. A baseline with no catalog still yields a valid empty manifest, allowing new scenarios to be reported as **added**.
+Capture the candidate with the current checkout and save its returned `Manifest`. Capture the selected baseline using the **same compiled candidate runner**, with `ProjectRoot`, `Definitions`, and `Assets` pointing at the exact base checkout, and `MatchContracts` set to `candidateManifest.Contracts`. The adapter skips incompatible contracts but retains their identities for the report. This prevents changed fixtures from being described as like-for-like regressions. A baseline with no catalog still yields a valid empty manifest, allowing new scenarios to be reported as **added**.
 
 From the Go module's own checkout, run:
 
@@ -62,7 +66,7 @@ go run github.com/archaic-work/visual-test/cmd/visualtest@<pinned-ref> validate 
 go run github.com/archaic-work/visual-test/cmd/visualtest@<pinned-ref> compare --base /tmp/main-shots --candidate /tmp/pr-shots --out /tmp/visual-report
 ```
 
-The comparator rejects missing same-contract captures and incompatible browser environments. It classifies unchanged, changed, added, removed and contract-changed views, writes real PNG difference images where dimensions agree, and renders a static changed-only `index.html` and `summary.json`. `GITHUB_STEP_SUMMARY` is populated if available.
+The comparator rejects missing same-contract captures and incompatible browser environments. It classifies unchanged, changed, added, removed and contract-changed views, writes real PNG difference images where dimensions agree, and renders a static changed-only `index.html` and `summary.json`. `GITHUB_STEP_SUMMARY` is populated if available; this is optional integration, not a requirement. External CI can use the generated files directly.
 
 ## Reproducibility limits
 
