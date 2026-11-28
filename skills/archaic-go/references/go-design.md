@@ -47,7 +47,7 @@ Apply these conventions proportionally to the task and project. Do not rewrite w
 - Separate transport details from application behavior when it makes boundaries clearer.
 - Configure appropriate timeouts and graceful shutdown; justify framework or router dependencies.
 - Use `log/slog` for structured logging. Propagate request context and avoid leaking secrets.
-- When request-scoped failure diagnostics are needed, follow the separate [flight recorder procedure](http-observability.md).
+- For HTTP servers, follow the [flight recorder requirements](http-observability.md): instrument complete request lifecycles for failure investigation, retain bounded diagnostics, and verify causal detail in tests. Apply them when reviewing HTTP code as well as when implementing it.
 
 ### Testing
 - Use the standard `testing` package and test observable behavior rather than implementation details.
