@@ -1,6 +1,6 @@
 ---
 name: archaic-go
-description: Develop, refactor, review, test, and maintain Go projects using Archaic conventions. Use for Go architecture, APIs, HTTP services, database access, concurrency, project scaffolding, NixOS development shells, Helix integration, SOPS/age setup, and project-specific maintenance guidance. Prefer idiomatic Go and existing project patterns; use the separate archaic-go-visualtest skill for browser screenshot scenarios and PR visual comparisons.
+description: Develop, refactor, review, test, and maintain Go projects using Archaic conventions. Use for Go architecture, APIs, HTTP services, structured logging and flight-recorder compliance reviews, database access, concurrency, project scaffolding, NixOS development shells, Helix integration, SOPS/age setup, and project-specific maintenance guidance. Prefer idiomatic Go and existing project patterns; use the separate archaic-go-visualtest skill for browser screenshot scenarios and PR visual comparisons.
 ---
 
 # Archaic Go
@@ -19,7 +19,7 @@ Develop minimal, explicit, idiomatic Go projects. Keep Go responsible for module
 
 - **Go design and code review:** Read [Go design conventions](references/go-design.md) for package boundaries, error handling, database access, testing, HTTP defaults and protocol compatibility.
 - **Creating a Go repository or development shell:** Read [new project setup](references/new-project.md) before choosing a flake, editor tooling, secrets handling or build packaging.
-- **HTTP request diagnostics:** Read [HTTP flight recorder](references/http-observability.md) when implementing or reviewing HTTP request logging and failure diagnostics. Do not impose request buffering on CLI or background-only tools.
+- **HTTP request diagnostics:** Read [HTTP flight recorder](references/http-observability.md) when building or reviewing HTTP services, adding or changing request paths, diagnosing failures, or auditing logging compliance. Treat diagnostic coverage and meaningful failure reports as acceptance criteria, not just recorder presence. Do not impose request buffering on CLI or background-only tools.
 - **Project documentation and recurring maintenance:** Read [project maintenance skills](references/project-maintenance.md) when creating or updating a project's own maintenance skill.
 - **Browser screenshot scenarios or visual PR comparisons:** Use the separate `archaic-go-visualtest` skill; this general-purpose skill does not bundle a browser testing library.
 
